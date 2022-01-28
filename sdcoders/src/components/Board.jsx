@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
 import Square from './Square';
+
 class Board extends Component {
-    state = {  } 
+   
     renderSquare(i) { 
-        return (<Square value={i}/>);
+        return (<Square 
+            value={this.props.squares[i]}
+            onClick={() => this.props.onClick(i)}
+            />);
+            
     }
+
     render(){
-        const status ="next Player: x"
+       
         return(
             <div>
-            <div className='status'>
-                {status}
-            </div>
             <div className='border-row'>
                 {this.renderSquare(0)}
                 {this.renderSquare(1)}
